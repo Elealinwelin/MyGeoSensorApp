@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">MyGeoSensorApp</string>
+    <string name="titulo_grafico_estacion">Mediciones del sensor X</string>
+    <string name="rb_1_dia">1 día</string>
+    <string name="rb_1_mes">1 mes</string>
+    <string name="rb_1_semana">1 semana</string>
+    <string name="exposicion_por_colores">Exposición por colores</string>
+    <string name="ajustes">Ajustes</string>
+    <string name="tamano_de_los_pixeles">Tamaño de los píxeles</string>
+    <string name="mapa_de_exposicion_ambiental_por_colores">Mapa de exposición ambiental por colores</string>
+    <string name="propiedad_a_mostrar">Propiedad a mostrar</string>
+    <string name="l1_umbral_saludable">L1 (umbral saludable)</string>
+    <string name="l2_umbral_perjudicial">L2 (umbral perjudicial)</string>
+    <string name="usuario">Usuario</string>
+    <string name="recorrido_aleatorio_del_usuario">Recorrido aleatorio del usuario</string>
+    <string name="valor_de_l1">Valor de L1</string>
+    <string name="valor_de_l2">Valor de L2</string>
+    <string name="tamano_de_pixeles">Tamaño de píxeles</string>
+    <string name="datos_de_exposicion_del_usuario">Datos de exposición del usuario</string>
+</resources>

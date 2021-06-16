@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bubble_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="@drawable/bonuspack_bubble">
+
+    <TextView
+        android:id="@+id/title_marker"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#040404"
+        android:textSize="15sp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:paddingBottom="5dp"
+        android:typeface="sans" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/botonera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="15dp">
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
