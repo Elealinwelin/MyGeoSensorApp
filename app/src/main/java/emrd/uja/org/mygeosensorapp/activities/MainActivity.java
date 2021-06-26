@@ -7,8 +7,10 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.StrictMode;
 import android.preference.PreferenceManager;
 import android.support.v4.content.res.ResourcesCompat;
 import android.view.Gravity;
@@ -90,8 +92,8 @@ public class MainActivity extends Activity implements MapEventsReceiver {
         tamCuadrados = 25; //Tamaño por defecto de los cuadros (píxeles) del mapa de exposición ambiental por colores
         usuarioAleatorio = false; //Tipo de recorrido por defecto que realiza el usuario simulado al caminar por el mapa. Puede ser lineal o aleatorio.
         //tiempoSimulado = 1579564800000L;// 22 de Enero de 2020 a las 00:00:00h - 1 día, currentTime simulado
-        //tiempoSimulado = 1559563200000L;// 4 de Junio de 2019 a las 12:00:00h - 1 día, currentTime simulado
-        tiempoSimulado = 1588168800000L;// 30 de Abril de 2020 a las 14:00:00h - 1 día, currentTime simulado
+        tiempoSimulado = 1559563200000L;// 4 de Junio de 2019 a las 12:00:00h - 1 día, currentTime simulado
+        //tiempoSimulado = 1588168800000L;// 30 de Abril de 2020 a las 14:00:00h - 1 día, currentTime simulado
 
         // Inicializamos el resto de variables
         ubicaciones = new ArrayList<>();
