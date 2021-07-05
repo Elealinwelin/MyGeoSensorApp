@@ -19,8 +19,8 @@ import retrofit2.Call;
  * queremos visualizar en la gráfica de la siguiente activity.
  */
 public class PropiedadesUsuarioActivity extends AppCompatActivity {
-    LinearLayout botoneraLayout;
-    TextView title;
+    private LinearLayout botoneraLayout;
+    private TextView title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +45,7 @@ public class PropiedadesUsuarioActivity extends AppCompatActivity {
                         pintarBotones(listaPropiedadesSensores, device);
                     }
                 }
-        );
+        ,this);
         mycall.execute(call);
 
     }

@@ -3,14 +3,11 @@ package emrd.uja.org.mygeosensorapp.activities;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.StrictMode;
 import android.preference.PreferenceManager;
 import android.support.v4.content.res.ResourcesCompat;
 import android.view.Gravity;
@@ -141,7 +138,7 @@ public class MainActivity extends Activity implements MapEventsReceiver {
                         tareaExposicionUsuario();
                     }
                 }
-        );
+        ,this);
         mycall.execute(call);
 
         // Configuramos los listeners para movernos por el mapa
@@ -178,7 +175,7 @@ public class MainActivity extends Activity implements MapEventsReceiver {
                                     canvasView.invalidate();
                                 }
                             }
-                    );
+                    ,MainActivity.this);
                     mycall2.execute(call2);
                 }else{
                     // Eliminar canvas del mapa de colores
@@ -250,7 +247,7 @@ public class MainActivity extends Activity implements MapEventsReceiver {
                                 tiempoSimulado+= Constantes.time;
                             }
                         }
-                );
+                ,MainActivity.this);
                 mycall2.execute(call2);
 
                 handler.postDelayed(this, Constantes.time); // Dormimos la hebra unos segundos
@@ -346,7 +343,7 @@ public class MainActivity extends Activity implements MapEventsReceiver {
                             toastMsg.setGravity(Gravity.BOTTOM, 0, 180);
                             toastMsg.show();
                         }
-                );
+                ,this);
                 mycall.execute(call);
             }
 

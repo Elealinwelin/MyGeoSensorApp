@@ -111,7 +111,7 @@ public class AjustesActivity extends AppCompatActivity {
 
                     }
                 }
-        );
+        ,this);
         mycall.execute(call);
 
         // Recuperamos el resto de atributos seleccionados y los mostramos en los campos que corresponda

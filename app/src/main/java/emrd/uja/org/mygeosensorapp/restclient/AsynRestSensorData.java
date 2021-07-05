@@ -1,5 +1,8 @@
 package emrd.uja.org.mygeosensorapp.restclient;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.util.Log;
 import java.io.IOException;
@@ -33,7 +36,7 @@ public class AsynRestSensorData {
                 @Path("lat") Float lat,
                 @Path("lon") Float lon);
 
-        // Servicio para consultar las propiedades de los sensores de un determinado dispositivo (ciudad)
+        // Servicio para consultar información de todos los sensores de un determinado dispositivo (ciudad), incluyendo las propiedades que miden.
         @GET("query_sensor_properties/{device}")
         public Call<SensorProperty []> querySensorProperty(
                 @Path("device") String device);
@@ -46,7 +49,7 @@ public class AsynRestSensorData {
                 @Path("property") String property,
                 @Path("offtime") Long offtime);
 
-        // Servicio para consultar los datos de las últimas actualizaciones de los sensores de un determinado dispositivo (ciudad)
+        // Servicio para consultar los datos de la última actualización de cada uno de los sensores de un determinado dispositivo (ciudad)
         @GET("query_snapshot/{device}")
         public Call<SensorGeoData []> getSnapShot(
                 @Path("device") String device);
@@ -70,9 +73,13 @@ public class AsynRestSensorData {
 
     static public class MyCall<T> extends AsyncTask<Call<T>,T,Boolean>{
         Consume<T> consumer;
-        public MyCall(Consume<T> consumer){
+        private Activity activity;
+
+        public MyCall(Consume<T> consumer, Activity activity){
             this.consumer=consumer;
+            this.activity=activity;
         }
+
         @Override
         protected Boolean doInBackground(Call<T>... calls) {
             for(Call<T> call:calls){
@@ -83,10 +90,12 @@ public class AsynRestSensorData {
                     publishProgress(response.body());
                 } catch (IOException e) {
                     e.printStackTrace();
+                    return false;
                 }
             }
             return true;
         }
+
         @Override
         protected void onProgressUpdate(T... responses) {
             for(T response:responses) {
@@ -94,6 +103,26 @@ public class AsynRestSensorData {
                 this.consumer.consume(response);
             }
         }
+
+        @Override
+        protected void onPostExecute(Boolean result) {
+            super.onPostExecute(result);
+            if(!result){
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(activity);
+                alertDialogBuilder.setMessage("No ha sido posible conectar con el servidor.")
+                        .setCancelable(false)
+                        .setNegativeButton("Cerrar aplicación", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                System.exit(0);
+                            }
+                        });
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.setTitle("Error");
+                alertDialog.show();
+            }
+        }
+
     }
 
 }

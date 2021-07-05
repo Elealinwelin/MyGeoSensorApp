@@ -99,7 +99,7 @@ public class GraficaActivity extends AppCompatActivity {
                         pintarGrafica(listaDatosSensor);
                     }
                 }
-        );
+        ,this);
         mycall.execute(call);
     }
 
